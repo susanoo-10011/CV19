@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CV19.ViewModels.Base
 {
-    internal abstract class ViewModel : INotifyPropertyChanged //интерфейс, способный уведомлять об изменении каких-либо свойств внутри объекта
+    internal abstract class ViewModel : INotifyPropertyChanged, IDisposable //интерфейс, способный уведомлять об изменении каких-либо свойств внутри объекта
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -25,6 +25,19 @@ namespace CV19.ViewModels.Base
             field = value;
             OnPropertyChanged(PropertyName); 
             return true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+
+        private bool _Disposed;
+        protected virtual void Dispose(bool Disposing) // наследники смогут переопределить параметр Disposing
+        {
+            if(!Disposing || _Disposed) return;
+            _Disposed = true;
+            //освобождение управляемых ресурсов
         }
     }
 }
