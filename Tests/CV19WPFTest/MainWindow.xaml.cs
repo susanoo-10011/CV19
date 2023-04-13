@@ -22,7 +22,7 @@ namespace CV19WPFTest
     {
         public MainWindow()
         {
-            InitializeComponent();
+            // InitializeComponent();
         }
     }
 }
