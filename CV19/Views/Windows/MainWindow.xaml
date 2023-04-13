@@ -13,15 +13,52 @@
         <vm:MainWindowViewModel/>
     </Window.DataContext>
 
-    <Grid>
-        <TextBox Text="{Binding Title, 
-            UpdateSourceTrigger=PropertyChanged}"
-                 Margin="10,10,0,0"
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top"
-                 HorizontalAlignment="Left" 
-                 Height="24" Width="165"/>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход"/>
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программе"/>
 
+            </MenuItem>
+        </Menu>
 
-    </Grid>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem MinWidth="150" MaxWidth="350">
+                <TextBlock Text="123"/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Width="120" Height="14" Value="30"/>
+            </StatusBarItem>
+        </StatusBar>
+        <TabControl >
+            <TabItem Header="Вкладка 1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="61*"/>
+                        <RowDefinition Height="327*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="157*"/>
+                        <ColumnDefinition Width="637*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Rectangle Fill="Blue" Stroke="Red"
+                               Grid.Column="0" Grid.Row="0"
+                               Margin="5,7"
+                               StrokeThickness="3"
+                               RadiusX="5" RadiusY="7"/>
+
+                    <Ellipse Grid.Column="1" Grid.Row="1"
+                             Fill="Red" Stroke="Blue"
+                             StrokeThickness="3"  />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Вкладка 2 "/>
+
+        </TabControl>
+
+    </DockPanel>
 </Window>
