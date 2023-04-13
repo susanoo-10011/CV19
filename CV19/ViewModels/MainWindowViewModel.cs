@@ -23,5 +23,15 @@ namespace CV19.ViewModels
                 OnPropertyChanged();
             }*/
         }
+
+        /// <summary>Статус программы</summary>
+        private string _Status = "Готов!";
+        /// <summary>Статус программы</summary>
+        public string Status
+        {
+            get => _Status; // просто возвращает значение поля 
+            set => Set(ref _Status, value); //вызывает метод Set, который передает ссылку на поле _Status и значение, которое будет установленно(value)
+        }
+
     }
 }
